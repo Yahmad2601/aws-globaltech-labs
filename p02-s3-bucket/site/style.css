@@ -1,0 +1,234 @@
+/* Colour palette and base sizes */
+:root {
+  --cream: #fff8ef;
+  --sand: #f6e6d0;
+  --terracotta: #c8553d;
+  --terracotta-dark: #9e3f2c;
+  --mustard: #e9a23b;
+  --brown: #4a2c1f;
+  --text: #3b2a22;
+  --muted: #7a6458;
+  --radius: 14px;
+}
+
+/* Reset and page basics */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+a { color: var(--terracotta); }
+a:hover { color: var(--terracotta-dark); }
+
+h1, h2, h3 { color: var(--brown); line-height: 1.2; }
+h1 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+h2 { font-size: 1.7rem; margin-bottom: 1.5rem; text-align: center; }
+h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+/* Header and navigation */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 1rem 5%;
+  background: var(--brown);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cream);
+  text-decoration: none;
+}
+.logo:hover { color: var(--cream); }
+
+/* Logo mark: a simple house roof made with CSS borders */
+.logo-mark {
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 16px solid var(--mustard);
+}
+
+nav { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+nav a {
+  color: var(--sand);
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+}
+nav a:hover, nav a.active {
+  background: var(--terracotta);
+  color: #fff;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 3.5rem 5%;
+  background: linear-gradient(135deg, var(--sand), var(--cream));
+}
+
+.hero-text { flex: 1 1 320px; }
+.hero-text p { font-size: 1.1rem; color: var(--muted); margin-bottom: 1.4rem; max-width: 34rem; }
+
+.hero-art {
+  flex: 1 1 260px;
+  position: relative;
+  height: 260px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+}
+.circle-big {
+  width: 220px;
+  height: 220px;
+  background: var(--terracotta);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.circle-small {
+  width: 90px;
+  height: 90px;
+  background: var(--mustard);
+  top: 0;
+  left: calc(50% + 60px);
+}
+.hero-emoji {
+  position: absolute;
+  font-size: 5rem;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  background: var(--terracotta);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 2px solid var(--terracotta);
+}
+.button:hover { background: var(--terracotta-dark); border-color: var(--terracotta-dark); color: #fff; }
+
+.button-outline { background: transparent; color: var(--terracotta); }
+.button-outline:hover { background: var(--terracotta); color: #fff; }
+
+/* Content sections */
+.section { padding: 3rem 5%; }
+.lead { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; }
+.center { text-align: center; margin-top: 2rem; }
+
+/* Card grid: one column on phones, more as space allows */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  border-top: 5px solid var(--mustard);
+  box-shadow: 0 4px 14px rgba(74, 44, 31, 0.08);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: var(--sand);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.card p { color: var(--muted); }
+
+.price {
+  margin-top: 0.8rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--terracotta) !important;
+}
+
+/* Opening hours table */
+.hours { width: 100%; border-collapse: collapse; color: var(--muted); }
+.hours td { padding: 0.35rem 0; border-bottom: 1px dashed var(--sand); }
+.hours td:last-child { text-align: right; font-weight: 600; color: var(--text); }
+
+/* Error page */
+.error-page { text-align: center; }
+.error-page .lead { max-width: 30rem; margin-left: auto; margin-right: auto; }
+
+.error-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+}
+
+/* The zero in 404 is drawn as a mustard ring */
+.error-zero {
+  width: 5rem;
+  height: 5rem;
+  border: 14px solid var(--mustard);
+  border-radius: 50%;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--brown);
+  color: var(--sand);
+  text-align: center;
+  padding: 1.5rem 5%;
+  font-size: 0.95rem;
+}
+.site-footer a { color: var(--mustard); }
+
+/* Small screens */
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  .site-header { justify-content: center; }
+  .hero { text-align: center; padding: 2.5rem 5%; }
+  .hero-text p { margin-left: auto; margin-right: auto; }
+  .hero-art { height: 220px; }
+  .circle-big { width: 180px; height: 180px; }
+  .circle-small { width: 70px; height: 70px; left: calc(50% + 45px); }
+  .hero-emoji { font-size: 4rem; top: 75px; }
+  .error-code { font-size: 4.5rem; }
+  .error-zero { width: 3.8rem; height: 3.8rem; border-width: 10px; }
+}
